@@ -1,0 +1,28 @@
+{
+  "name": "projet6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "npx gulp watch",
+    "makeCss": "npx gulp makeCss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matthozor/projet6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matthozor/projet6/issues"
+  },
+  "homepage": "https://github.com/Matthozor/projet6#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.1",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.1.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "node-sass": "^6.0.1"
+  }
+}
