@@ -1,4 +1,4 @@
-/** global L */
+/** global L init */
 
 class LeafLetMap{
 
@@ -26,17 +26,13 @@ class LeafLetMap{
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.mymap);
-    
-    const data = await database.getData();
-    data.forEach(marker => {
-      this.addMarker(marker);
-    });
-    liste.update(data);
+    init();
 
   }
 
   failedPosition(){
-    console.error("veuillez activer la géolocalisation")
+    console.error("veuillez activer la géolocalisation");
+    alert("pas de bras pas de chocolat")
   }
 
   /**
@@ -52,6 +48,7 @@ class LeafLetMap{
    * @return  {void}                           ajoute un marker sur la carte
    */
   addMarker(marker){
+    console.log(marker);
     L.marker([marker.lat, marker.long]).addTo(this.mymap)
     .bindPopup(`${marker.restaurantName}`)
     // .openPopup();

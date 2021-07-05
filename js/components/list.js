@@ -1,4 +1,7 @@
 class List{
+
+  restaurants = [];
+
   constructor(domTarget){
     this.DOM = domTarget;
   }
@@ -11,6 +14,13 @@ class List{
    * @return  {[type]}         [return description]
    */
   update(restaurants){
-    
+    this.clear();
+    restaurants.forEach(element => {
+      this.restaurants.push(new Restaurant(this.DOM, element));
+    });
+  }
+
+  clear(){
+
   }
 }
