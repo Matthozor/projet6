@@ -1,6 +1,11 @@
-/** global L init */
+/* global L, init */
 
 class LeafLetMap{
+
+  /**
+   * nos icones
+   */
+  icons = {};
 
   /**
    * [constructor description]
@@ -11,7 +16,18 @@ class LeafLetMap{
    */
   constructor(target){
     this.divTarget = target;
+
+    this.icons.greenIcon = new L.Icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+    
     navigator.geolocation.getCurrentPosition((position)=>{this.succeedPosition(position)}, ()=>this.failedPosition());
+
   }
 
   /**
@@ -19,13 +35,14 @@ class LeafLetMap{
    *
    * @param   {GeolocationPosition}  geoloc  [geoloc description]
    *
-   * @return  {Promise}          [return description]
+   * @return  {void}                         affiche la carte de base
    */
-  async succeedPosition(geoloc){
+  succeedPosition(geoloc){
     this.mymap = L.map(this.divTarget).setView([geoloc.coords.latitude, geoloc.coords.longitude], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.mymap);
+    L.marker([geoloc.coords.latitude, geoloc.coords.longitude], {icon: this.icons.greenIcon}).addTo(this.mymap)
     init();
 
   }

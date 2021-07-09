@@ -1,0 +1,48 @@
+.stars{
+  font-family : "Font Awesome 5 Free";
+  &::before{
+    color: yellow;
+    font-weight: bold;
+  }
+  &::after{
+    color: grey;
+  }
+}
+
+.oneStar{
+  &::before{
+    content:"\f004";
+  }
+  &::after{
+    content:"\f004\f004\f004\f004";
+  }
+}
+.twoStars{
+  &::before{
+    content:"\f004\f004";
+  }
+  &::after{
+    content:"\f004\f004\f004";
+  }
+}
+.threeStars{
+  &::before{
+    content:"\f004\f004\f004";
+  }
+  &::after{
+    content:"\f004\f004";
+  }
+}
+.fourStars{
+  &::before{
+    content:"\f004\f004\f004\f004";
+  }
+  &::after{
+    content:"\f004";
+  }
+}
+.fiveStars{
+  &::before{
+    content:"\f004\f004\f004\f004\f004";
+  }
+}

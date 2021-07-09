@@ -11,7 +11,7 @@ class List{
    *
    * @param   {Array}  restaurants  [liste description]
    *
-   * @return  {[type]}         [return description]
+   * @return  {void}         [return description]
    */
   update(restaurants){
     this.clear();
