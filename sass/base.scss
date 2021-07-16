@@ -1,7 +1,131 @@
+// COLORS
+$color-orange-light: #ff8d6d;
+$color-green-light: #00816d;
+$color-green-dark: #00594f;
+
+//COLORS BASICS
+$color-white: #ffffff;
+$color-black: #000000;
+
+// SHADOWS
+$shadow-grey-light: 10px 4px 15px rgba(0, 0, 0, 0.30%);
+
 $primary : red;
+
+// Media queries breakpoints
+$xs-max: 600px;
+$sm-min: $xs-max + 1px;
+$sm-max: 900px;
+$md-min: $sm-max + 1px;
+$md-max: 1200px;
+$lg-min: $md-max + 1px;
+
+// Media queries breakpoints
+$screen-xs-max: "(max-width: #{$xs-max})";
+$screen-sm-min: "(min-width: #{$sm-min})";
+$screen-sm-max: "(max-width: #{$sm-max})";
+$screen-sm-only: "#{$screen-sm-min} and #{$screen-sm-max}";
+$screen-md-min: "(min-width: #{$md-min})";
+$screen-md-max: "(max-width: #{$md-max})";
+$screen-md-only: $screen-md-min + " and " + $screen-md-max;
+$screen-lg-min: "(min-width: #{$lg-min})";
+$screen-lg-max: "(max-width: 1439px)";
+$screen-xl-min: "(min-width: 1440px)";
+
+@mixin desktop {
+  @media screen and (min-width: #{$md-min}) {
+      @content;
+  }
+}
+
+@mixin small-desktop {
+  @media screen and (max-width: #{$md-max}) {
+      @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: #{$sm-max}) {
+      @content;
+  }
+}
+
+@mixin tablet-min {
+  @media screen and (min-width: #{$sm-min}) {
+      @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: #{$xs-max}) {
+      @content;
+  }
+}
 
 
 
 body {
-  display: flex;
+  // display: flex;
+}
+
+.restaurants {
+
+  &__title {
+    position: relative;
+    padding: 15px 140px;
+    font: 500 40px/1.4 verdana;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 25px);
+      left: 0px;
+      width: 130px;
+      height: 50px;
+      border-radius: 0 30px 0 0;
+      background-color: $color-orange-light;
+      z-index: -1;
+    }
+
+    @include tablet {
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    @include mobile {
+      font-size: 20px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    margin-top: 80px;
+  }
+
+  &__list {
+    text-align: center;
+    font: 500 25px/1.4 verdana;
+    color: $color-white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0px;
+      width: 100%;
+      height: 88px;
+      border-radius: 0 15px 0 0;
+      background-color: $color-orange-light;
+      z-index: -1;
+    }
+
+    @include tablet {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
 }

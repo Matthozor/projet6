@@ -9,7 +9,7 @@ sass.compiler = require('node-sass');
 
 
 function makeCss() {
-  return gulp.src(["./sass/base.scss", './sass/**/*.scss'])
+  return gulp.src(["./sass/base.scss", "./sass/mixin.scss", './sass/**/*.scss'])
     .pipe(sourcemaps.init())
     .pipe(concat('style.css'))
     .pipe(sourcemaps.write())
