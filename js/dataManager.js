@@ -7,4 +7,7 @@ class DataManager{
     const data = await fetch("data.json");
     return await data.json();
   }
+  filteredRestaurant(min, max){
+    
+  }
 }

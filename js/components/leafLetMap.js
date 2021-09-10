@@ -68,7 +68,12 @@ class LeafLetMap{
     console.log(marker);
     L.marker([marker.lat, marker.long]).addTo(this.mymap)
     .bindPopup(`${marker.restaurantName}`)
+    .on('click', ()=>{this.callRestaurant(marker.restaurantName)}); 
     // .openPopup();
+  }
+
+  callRestaurant(restaurant){
+    window.restaurants[restaurant].click();
   }
   
 }

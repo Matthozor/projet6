@@ -31,6 +31,8 @@ class Restaurant{
     for (const [key, value] of Object.entries(props)) {
       this[key] = value;
     }
+    window.restaurants[this.restaurantName] = this;
+    this.resume = true;
     this.render();
   }
 
